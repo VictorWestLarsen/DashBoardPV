@@ -5,9 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { OverviewComponent } from './overview/overview.component';
 
 const appRoutes: Routes = [
-  {path: '/details', component: DetailsComponent},
-  {path: '/feeds', component: FeedsComponent},
-  {path: '/login', component: LoginComponent },
-  {path: '/overview', component: OverviewComponent}
+  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: 'details', component: DetailsComponent},
+  {path: 'feeds', component: FeedsComponent},
+  {path: 'overview', component: OverviewComponent}
+
 ];
 export const routing = RouterModule.forRoot(appRoutes);

@@ -1,26 +1,19 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <section>
     <header>
     <h1 class="title">Porco Vision Dashboard</h1>
   </header>
-<div class="wrapper">
-    <div class="sidebar">
-      <img src="../assets/images/cropped-Logo.png" height="152" width="520"/>
-        <ul>
-            <li><a href="#"><i class="top element"></i>Feeds</a></li>
-            <li><a href="#"><i class="fas fa-overview"></i>Overview</a></li>
-            <li><a href="#"><i class="fas fa-details"></i>Details</a></li>
-        </ul>
-    </div>
+<div class="sidebar">
+   <div>
+    <img alt="" class="logo-sidebar" src="../assets/images/cropped-Logo.png" height="152" width="170"/>
+   </div>
+  <a routerLink="/feeds"><i class="fas fa-video"></i> Feeds</a>
+  <a routerLink="/details"><i class="fas fa-info-circle"></i> Details</a>
+  <a routerLink="/overview"><i class="fas fa-bars"></i> Overview</a>
 </div>
 </section>
- <div>
-   <img class="logo sidebar" href="">
- </div>
-<section>
-  <app-login></app-login>
-  <app-overview></app-overview>
-  <app-feeds></app-feeds>
-  <app-details></app-details>
+<section class="main">
+  <router-outlet></router-outlet>
 </section>
+
 
