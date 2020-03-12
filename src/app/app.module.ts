@@ -7,6 +7,7 @@ import { FeedsComponent } from './feeds/feeds.component';
 import { OverviewComponent } from './overview/overview.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FeedsService } from './feeds/feeds.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [
+    FeedsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
