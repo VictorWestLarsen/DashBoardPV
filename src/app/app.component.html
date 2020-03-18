@@ -1,16 +1,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-<section>
+<section *ngIf="router.url != '/'" >
     <header>
-    <h1 class="title">Porco Vision Dashboard</h1>
-  </header>
-<div class="sidebar">
-   <div>
-    <img alt="" class="logo-sidebar" src="../assets/images/cropped-Logo.png" height="152" width="170"/>
-   </div>
-  <a routerLink="/feeds"><i class="fas fa-video"></i> Feeds</a>
-  <a routerLink="/details"><i class="fas fa-info-circle"></i> Details</a>
-  <a routerLink="/overview"><i class="fas fa-bars"></i> Overview</a>
-</div>
+      <div  class="topnav">
+        <img class="logo-header" src="../assets/images/logo2.png"/>
+        <a id="menuPoint" routerLink="/feeds"><i class="fas fa-video"></i> Feeds</a>
+        <a  routerLink="/details"><i class="fas fa-info-circle"></i> Details</a>
+        <a routerLink="/overview"><i class="fas fa-bars"></i> Overview</a>
+      </div>
+    </header>
+
 </section>
 <section class="main">
   <router-outlet></router-outlet>

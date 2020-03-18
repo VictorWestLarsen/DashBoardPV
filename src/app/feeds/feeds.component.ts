@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedsService } from './feeds.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -9,11 +10,12 @@ import { FeedsService } from './feeds.service';
 })
 export class FeedsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private feedService: FeedsService) { }
+  feeds$;
   ngOnInit(): void {
   }
-  showConfig() {
-    this.feedsService
+  getFeed(): Observable<object> {
+      return this.feeds$ = this.feedService.getConfig();
+      console.log(this.feeds$);
   }
 }

@@ -1,1 +1,6 @@
 <p>feeds works!</p>
+<button (click)="getFeed()">Test feed</button>
+
+<ul>
+  <li *ngFor="let name of feeds$ | async">{{ name }}</li>
+</ul>

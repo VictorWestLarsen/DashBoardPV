@@ -1,0 +1,52 @@
+.logo-login{
+  height: 111px;
+  width: 109px;
+}
+.login-wrapper{
+  align-self: center;
+  height: max-content;
+}
+
+.sign-in-label{
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 20px;
+  font-family: Lato, serif;
+  font-weight: normal;
+  text-align: center;
+  margin-top: -20px;
+}
+.login-welcome{
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-family: Montserrat, serif;
+  font-weight: 800;
+  text-align: center;
+
+}
+.email-input{
+  size: auto;
+  background-size: 16px 18px;
+  cursor: auto;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+
+}
+
+.fa-envelope{
+  padding-right: 7px;
+}
+.password-input {
+  background-size: 16px 18px;
+  cursor: auto;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+.fa-lock{
+  padding-right: 7px;
+}
+.button__roundedButton___1fbZA{
+  margin-top: 7px;
+}

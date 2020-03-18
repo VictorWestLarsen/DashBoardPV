@@ -1,4 +1,8 @@
-{
-  "feedURL": "https://storage.googleapis.com/porcovision-minidecoder/sandskov/1051/sandskov-1051-1579260785.650567-human.mp4",
-  "textfile": "assets/textfile.txt"
-}
+[
+  {
+    "name": "test"
+  },
+  {
+    "name": "test2"
+  }
+]
