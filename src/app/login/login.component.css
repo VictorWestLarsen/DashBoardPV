@@ -23,7 +23,8 @@
   text-align: center;
 
 }
-.email-input{
+
+.username{
   size: auto;
   background-size: 16px 18px;
   cursor: auto;
@@ -36,7 +37,7 @@
 .fa-envelope{
   padding-right: 7px;
 }
-.password-input {
+.password {
   background-size: 16px 18px;
   cursor: auto;
   background: transparent;
@@ -49,4 +50,7 @@
 }
 .button__roundedButton___1fbZA{
   margin-top: 7px;
+}
+.login-welcome{
+  padding-bottom: 5px;
 }

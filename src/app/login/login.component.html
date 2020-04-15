@@ -22,7 +22,7 @@
         z-index: 1;
       }
 
-      .index__ant-input-affix-wrapper___2tHQU:hover
+      .index__ant-input-affix-wrapper___2tHQU:hover,
         .index__ant-input___2OCEQ:not(.index__ant-input-disabled___1R3On) {
         border-color: #40a9ff;
       }
@@ -119,15 +119,15 @@
         transform: translate(0) !important;
         background-color: #17244b !important;
         transition: all 0.2s linear;
-        width: 0px !important;
-        bottom: 0px;
+        width: 0 !important;
+        bottom: 0;
       }
 
       .button__roundedButton___1fbZA {
         border: none;
         border-radius: 25px;
         padding: 5px 25px 9px;
-        font-family: TexGyre-bold;
+        font-family: TexGyre-bold,serif;
         font-size: 12px;
         position: relative;
         overflow: hidden;
@@ -237,45 +237,29 @@
       }
     </style>
 
-
-
-<div class="outerdiv">
-
-
-    <div class="container">
-      <div class="alert alert-primary" role="alert">
-        <ul class="flashes">
-
-
-        </ul>
+  <div class="login-wrapper" >
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="uname">Username:</label>
+        <input type="text" name="username" id="uname" class="form-control" [(ngModel)]="username">
       </div>
-    </div>
-
-<div class="login-wrapper" >
-    <form class="form" method="POST" action="">
-      <img class="logo-login" src="../../assets/images/smallLogo2.png" alt="type/img">
-      <div ></div>
-      <h1 class="login-welcome" > Welcome back.</h1>
-      <h2 class="sign-in-label">Sign in to PorcoVision</h2>
-      <form class="form-login">
-        <i class="fas fa-envelope"></i>
-        <input class="email-input" type="text" placeholder="Email" >
-        <br>
-        <i class="fas fa-lock"></i>
-        <input class="password-input" type="password" placeholder="Password">
-      </form>
+      <div>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="password" class="form-control" [(ngModel)]="password">
+      </div>
+      <button class="button__roundedButton___1fbZA button__primary___3bR8U" type="submit">
+        <div style="font-family: Lato;">Let me in</div>
+      </button>
+    </form>
 
 
       <div>
-        <button class="button__roundedButton___1fbZA button__primary___3bR8U" type="submit">
-          <div style="font-family: Lato;">Let me in</div>
-        </button>
+
       </div>
       <div style="margin-top: 20px"></div>
       <div>
         <a href="/forgot-password">I forgot my password</a>
       </div>
-    </form>
   </div>
-</div>
+
 

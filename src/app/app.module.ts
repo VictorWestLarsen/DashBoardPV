@@ -8,6 +8,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedsService } from './feeds/feeds.service';
+import { LoginService} from './login/login.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { FeedsService } from './feeds/feeds.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    routing
+    routing,
+    FormsModule
   ],
   providers: [
-    FeedsService
+    FeedsService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

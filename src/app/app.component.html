@@ -1,17 +1,28 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-<section *ngIf="router.url != '/'" >
-    <header>
-      <div  class="topnav">
-        <img class="logo-header" src="../assets/images/logo2.png"/>
-        <a id="menuPoint" routerLink="/feeds"><i class="fas fa-video"></i> Feeds</a>
-        <a  routerLink="/details"><i class="fas fa-info-circle"></i> Details</a>
-        <a routerLink="/overview"><i class="fas fa-bars"></i> Overview</a>
-      </div>
-    </header>
 
-</section>
+<nav *ngIf="router.url != '/'" class="navbar navbar-inverse">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand">Rebar</a>
+    </div>
+
+    <div style="display: inline-block;">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/feeds">Feeds</a>
+        </li>
+        <li><a routerLink="/overview">Overview</a>
+        </li>
+        <li><a routerLink="/details">Details</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <section class="main">
   <router-outlet></router-outlet>
 </section>
+
 
 

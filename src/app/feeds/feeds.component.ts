@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-feeds',
   templateUrl: './feeds.component.html',
-  styleUrls: ['./feeds.component.css']
+  styleUrls: ['./feeds.component.scss']
 })
 export class FeedsComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class FeedsComponent implements OnInit {
   ngOnInit(): void {
   }
   getFeed(): Observable<object> {
-      return this.feeds$ = this.feedService.getConfig();
-      console.log(this.feeds$);
+    console.log(this.feeds$);
+    return this.feeds$ = this.feedService.getConfig();
   }
 }
