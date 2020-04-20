@@ -1,56 +1,26 @@
-.logo-login{
-  height: 111px;
-  width: 109px;
-}
-.login-wrapper{
-  align-self: center;
-  height: max-content;
-}
+      .button__roundedButton___1fbZA {
+        border: none;
+        border-radius: 25px;
+        padding: 5px 25px 9px;
+        font-family: TexGyre-bold;
+        font-size: 12px;
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        cursor: pointer;
+      }
+      .button__roundedButton___1fbZA > div {
+        display: inherit;
+      }
+      .button__roundedButton___1fbZA a {
+        color: #fff;
+        text-decoration: none;
+      }
 
-.sign-in-label{
-  color: rgba(0, 0, 0, 0.45);
-  font-size: 20px;
-  font-family: Lato, serif;
-  font-weight: normal;
-  text-align: center;
-  margin-top: -20px;
-}
-.login-welcome{
-  color: rgb(0, 0, 0);
-  font-size: 30px;
-  font-family: Montserrat, serif;
-  font-weight: 800;
-  text-align: center;
-
-}
-
-.username{
-  size: auto;
-  background-size: 16px 18px;
-  cursor: auto;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #000000;
-
-}
-
-.fa-envelope{
-  padding-right: 7px;
-}
-.password {
-  background-size: 16px 18px;
-  cursor: auto;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #000000;
-}
-
-.fa-lock{
-  padding-right: 7px;
-}
-.button__roundedButton___1fbZA{
-  margin-top: 7px;
-}
-.login-welcome{
-  padding-bottom: 5px;
-}
+      .button__primary___3bR8U {
+        background-color: #ff8a8a;
+        color: #fff;
+      }
+      .button__primary___3bR8U:focus:not(.button__loading___NvYUa):not(.button__disabled___T_dRQ) {
+        background-color: #ff5757;
+      }

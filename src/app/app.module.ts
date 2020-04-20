@@ -9,7 +9,7 @@ import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedsService } from './feeds/feeds.service';
 import { LoginService} from './login/login.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     routing,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     FeedsService,

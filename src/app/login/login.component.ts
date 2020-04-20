@@ -1,10 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { FormControl } from '@angular/forms';
-import { routing } from '../app.routing';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { stringify } from 'querystring';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,24 +14,29 @@ import { Subscription } from 'rxjs';
 })
 
 export class LoginComponent implements OnInit {
+  form: FormGroup;
   public password;
   public username;
-        httpOptions = {
+  public WrongCred = this.loginService.httpError;
+  constructor(private loginService: LoginService, private router: Router) {
+  }
+
+  onSubmit() {
+    this.username = this.form.get('email').value;
+    this.password = this.form.get('pass').value;
+    console.log(this.username, this.password);
+    const httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
+      'Content-Type':  'application/x-www-form-urlencoded',
       Authorization: 'Basic' + btoa(this.username + ':' + this.password)
     })
   };
-  constructor(private loginService: LoginService, private http: HttpClient ) {
-  }
-  onSubmit() {
-  console.log('Basic' + btoa(this.username + ':' + this.password));
-  console.log(this.username, this.password);
-    // tslint:disable-next-line:max-line-length
-  this.loginService.loginUser(this.username, this.password, this.httpOptions).subscribe(resp => {console.log(resp.headers.headers.get('x-access-token'));
-  });
+    this.loginService.loginUser(this.username, this.password, httpOptions);
   }
   ngOnInit(): void {
-
+  this.form = new FormGroup({
+    email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+    pass: new FormControl('', Validators.required),
+  });
   }
 }
