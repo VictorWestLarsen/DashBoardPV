@@ -7,9 +7,10 @@ import { FeedsComponent } from './feeds/feeds.component';
 import { OverviewComponent } from './overview/overview.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FeedsService } from './feeds/feeds.service';
-import { LoginService} from './login/login.service';
+import { FeedsService } from './service/feeds.service';
+import { LoginService} from './service/login.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { User } from './user';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     FeedsService,
-    LoginService
+    LoginService,
+    User
   ],
   bootstrap: [AppComponent]
 })

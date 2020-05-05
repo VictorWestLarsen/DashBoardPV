@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './login.service';
+import { LoginService } from '../service/login.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { stringify } from 'querystring';
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
-      Authorization: 'Basic' + btoa(this.username + ':' + this.password)
+      Authorization: 'Basic' + this.username + ':' + this.password
     })
   };
     this.loginService.loginUser(this.username, this.password, httpOptions);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FeedsService } from './feeds.service';
+import { FeedsService } from '../service/feeds.service';
 import { Observable } from 'rxjs';
 
 
@@ -9,13 +9,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./feeds.component.scss']
 })
 export class FeedsComponent implements OnInit {
+  upcoming: any;
+  ongoing: any;
+  completed: any;
 
-  constructor(private feedService: FeedsService) { }
-  feeds$;
-  ngOnInit(): void {
+  constructor(private feedService: FeedsService) {
   }
-  getFeed(): Observable<object> {
-    console.log(this.feeds$);
-    return this.feeds$ = this.feedService.getConfig();
+  onSubmit() {
+
+  }
+
+  ngOnInit(): void {
+    this.feedService.getFeeds().subscribe(response => {
+    });
+
+
   }
 }

@@ -1,6 +1,10 @@
 <p>feeds works!</p>
-<button (click)="getFeed()">Test feed</button>
+<div>
+  <ul>
+    <li>
+      <video src="https://storage.googleapis.com/porcovision-minidecoder/ellesgaard/254/ellesgaard-254-1579444436.838769-human.mp4" type="video/mp4" ></video>
+    </li>
+  </ul>
+</div>
+<button (click)="onSubmit()">Test feed</button>
 
-<ul>
-  <li *ngFor="let name of feeds$ | async">{{ name }}</li>
-</ul>
