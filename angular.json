@@ -5,9 +5,11 @@
   "projects": {
     "DashBoardPV": {
       "projectType": "application",
-      "schematics": {"@schematics/angular:component": {
-      "styleext": "scss"
-    }},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +27,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-              "styles": [
+            "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
@@ -125,7 +127,8 @@
     }
   },
   "defaultProject": "DashBoardPV",
-  "schematics": {
-
+  "schematics": {},
+  "cli": {
+    "analytics": "56ead680-e81a-4831-ae5a-3447141097a4"
   }
 }

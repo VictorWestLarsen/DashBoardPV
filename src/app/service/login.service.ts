@@ -11,9 +11,9 @@ export class LoginService {
   loginUrl = 'http://127.0.0.1:5000/login';
   public loginUser(username, password, httpOptions) {
   return this.http.post(this.loginUrl, null,  httpOptions).subscribe(response => {
-    this.user.token = response.valueOf().toString();
-
-    if (this.user.token != null) {
+    this.user.token += response.valueOf();
+    console.log(response.valueOf())
+    if (this.user.token.length < 25) {
       this.user.authorized = true;
       this.router.navigate(['/feeds']);
       console.log(this.user.authorized, this.user.token);

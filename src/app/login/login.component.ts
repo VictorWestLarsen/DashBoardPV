@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
-      Authorization: 'Basic' + this.username + ':' + this.password
+      Authorization: 'Basic' + btoa(this.username + ':' + this.password)
     })
   };
     this.loginService.loginUser(this.username, this.password, httpOptions);
