@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   public password;
   public username;
-  public WrongCred = this.loginService.httpError;
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: LoginService) {
   }
 
   onSubmit() {
@@ -26,9 +25,8 @@ export class LoginComponent implements OnInit {
     this.password = this.form.get('pass').value;
     console.log(this.username, this.password);
     const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/x-www-form-urlencoded',
-      Authorization: 'Basic' + btoa(this.username + ':' + this.password)
+    headers: new HttpHeaders({'Content-Type':  'application/x-www-form-urlencoded',
+    Authorization: 'Basic' + btoa(this.username + ':' + this.password)
     })
   };
     this.loginService.loginUser(this.username, this.password, httpOptions);

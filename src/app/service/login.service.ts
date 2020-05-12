@@ -12,7 +12,7 @@ export class LoginService {
   public loginUser(username, password, httpOptions) {
   return this.http.post(this.loginUrl, null,  httpOptions).subscribe(response => {
     this.user.token += response.valueOf();
-    console.log(response.valueOf())
+    console.log(response.valueOf());
     if (this.user.token.length < 25) {
       this.user.authorized = true;
       this.router.navigate(['/feeds']);
