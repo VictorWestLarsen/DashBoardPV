@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../service/login.service';
+import { AuthService } from '../service/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { stringify } from 'querystring';
@@ -10,26 +10,22 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  providers: [AuthService]
 })
 
 export class LoginComponent implements OnInit {
   form: FormGroup;
   public password;
   public username;
-  constructor(private loginService: LoginService) {
+  constructor(private authService: AuthService) {
   }
 
   onSubmit() {
     this.username = this.form.get('email').value;
     this.password = this.form.get('pass').value;
     console.log(this.username, this.password);
-    const httpOptions = {
-    headers: new HttpHeaders({'Content-Type':  'application/x-www-form-urlencoded',
-    Authorization: 'Basic' + btoa(this.username + ':' + this.password)
-    })
-  };
-    this.loginService.loginUser(this.username, this.password, httpOptions);
+
+    this.authService.Login(this.username, this.password);
   }
   ngOnInit(): void {
   this.form = new FormGroup({

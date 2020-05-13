@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from './login/login.component';
+import {AuthService} from './service/auth.service';
 import { Router } from '@angular/router';
 
 
@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public router: Router) {}
+  constructor(public router: Router, private authService: AuthService) {}
+  LogOff() {
+    this.authService.logOut();
 }
+}
+
 

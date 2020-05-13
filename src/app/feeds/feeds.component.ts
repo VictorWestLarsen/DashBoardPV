@@ -15,7 +15,7 @@ export class FeedsComponent implements OnInit {
   upcoming = [];
   ongoing = [];
   completed = [];
-  test = [];
+
 
   constructor(private feedService: FeedsService) {
   }

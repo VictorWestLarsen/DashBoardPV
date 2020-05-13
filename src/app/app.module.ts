@@ -8,9 +8,10 @@ import { OverviewComponent } from './overview/overview.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedsService } from './service/feeds.service';
-import { LoginService} from './service/login.service';
+import { AuthService} from './service/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { User } from './user';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { User } from './user';
   ],
   providers: [
     FeedsService,
-    LoginService,
+    AuthService,
+    CookieService,
     User
   ],
   bootstrap: [AppComponent]
