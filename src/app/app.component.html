@@ -1,29 +1,25 @@
 
-<nav *ngIf="router.url != '/'" class="navbar navbar-inverse">
-  <div class="container-fluid">
-
-    <div class="navbar-header">
-      <a class="navbar-brand">Porco Vision Dashboard</a>
+<nav *ngIf="router.url != '/'" class="navbar navbar-light bg-light justify-content-start">
+  <img src="../assets/images/cropped-Logo.png" height="75" width="75"/>
+  <h1 class="justify-content-start">PorcoVision</h1>
+  <div class="d-flex ml-auto">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <a class="nav-link" routerLink="/feeds">Feeds</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/overview">Overview</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/details">Details</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="" (click)="LogOff()">Log out</a>
+      </li>
+    </ul>
     </div>
-
-    <div style="display: inline-block;">
-      <ul class="nav navbar-nav">
-        <li><a routerLink="/feeds">Feeds</a>
-        </li>
-        <li><a routerLink="/overview">Overview</a>
-        </li>
-        <li><a routerLink="/details">Details</a>
-        </li>
-        <li><a routerLink="" (click)="LogOff()">Log out</a> </li>
-      </ul>
-    </div>
-  </div>
 </nav>
-
 
 <section class="main">
   <router-outlet></router-outlet>
 </section>
-
-
-

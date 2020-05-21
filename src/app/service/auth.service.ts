@@ -8,6 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AuthService {
   loginUrl = '/api/login';
+  logOutURL = '/api/logout';
 
   constructor(
     private http: HttpClient,
@@ -19,12 +20,9 @@ export class AuthService {
     Authorization: 'Basic' + btoa(username + ':' + password)
     });
         return this.http.post(this.loginUrl, null, {headers, observe: 'response'}).subscribe(response => {
-    console.log(response.body.valueOf());
-    console.log(response.status);
     if (response.status === 200) {
       this.isLoggedIn();
       this.getCookie('httpOnly');
-      console.log(this.getCookie('access'));
       this.router.navigate(['/feeds']);
     }
   },
@@ -33,6 +31,7 @@ export class AuthService {
 
   logOut() {
     this.cookieService.deleteAll('/', 'localhost');
+    this.http.post(this.logOutURL, null);
   }
 
   isLoggedIn() {

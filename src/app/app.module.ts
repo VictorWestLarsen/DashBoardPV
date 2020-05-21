@@ -11,7 +11,7 @@ import { FeedsService } from './service/feeds.service';
 import { AuthService} from './service/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { User } from './user';
-import {CookieService} from "ngx-cookie-service";
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [

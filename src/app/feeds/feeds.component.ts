@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { FeedsService } from '../service/feeds.service';
-import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -9,41 +9,36 @@ import { Observable } from 'rxjs';
   styleUrls: ['./feeds.component.scss']
 })
 export class FeedsComponent implements OnInit {
-  upcomingURL = [];
-  ongoingURL = [];
-  completedURL = [];
-  upcoming = [];
-  ongoing = [];
-  completed = [];
+  constructor(private feedService: FeedsService) {}
+  objectKeys = Object.keys;
+  public completedURL = {};
+  public upcomingURL = {};
+  public ongoingURL = {};
+  public watchlist = {};
 
+ngOnInit(): void {
+    this.feedService.getFeeds().subscribe( response => {
+      for (let i = 0; i < response[0].completed.length; i++) {
+        this.completedURL[response[0].completed[i].box_number] = response[0].completed[i].feed_url;
+      }
+      for (let j = 0; j < response[0].ongoing.length; j++) {
+        this.ongoingURL[response[0].ongoing[j].box_number] = response[0].ongoing[j].feed_url;
+      }
+      for (let k = 0; k < response[0].upcoming.length; k++) {
+        this.upcomingURL[response[0].upcoming[k].box_number] = response[0].upcoming[k].feed_url;
+      }
 
-  constructor(private feedService: FeedsService) {
+    });
   }
-
-  onSubmit() {
-
-  }
-
-  ngOnInit(): void {
-    this.feedService.getFeeds().subscribe(response => {
-      this.completed.push(response[0]['completed']);
-      this.ongoing.push(response[0]['ongoing']);
-      this.upcoming.push(response[0]['upcoming'])
-
-      for (let i = 0; i < this.completed[0].length; i++){
-        this.completedURL.push(this.completed[0][i]['feed_url'])
-      }
-      for (let i = 0; i < this.ongoing[0].length; i++){
-        this.ongoingURL.push(this.ongoing[0][i]['feed_url'])
-      }
-      for (let i = 0; i < this.upcoming[0].length; i++){
-        this.upcomingURL.push(this.upcoming[0][i]['feed_url'])
-      }
-  })
+removeFromWatchlist(box) {
+  for (let key in this.watchlist) {
+    delete this.watchlist[box];
   }
 }
-       /* this.upcoming = response['upcoming'], this.ongoing = response['ongoing'], this.completed['completed']});
-    console.log(this.upcoming)
-    for (let i = 0; i < this.upcoming.length; i++){
-      this.upcomingURL.push(this.upcoming[i])
-      console.log(this.upcomingURL)*/
+  addToWatchlist(box: string, url: string) {
+  this.watchlist[box] = url;
+  console.log(this.watchlist);
+}
+
+}
+

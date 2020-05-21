@@ -1,27 +1,58 @@
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="container-fluid">
+    <div *ngIf="(watchlist | keyvalue)?.length">
+
+   <h2>Watchlist</h2>
+          <h6>No. of feeds: {{(watchlist | keyvalue)?.length}}</h6>
+      <div class="card-deck border-bottom">
+        <div class="card-body" *ngFor="let key of watchlist | keyvalue">
+          <h4>Box: {{key.key}}</h4>
+          <video width=400 height=400 type="video/mp4" src="{{key.value}}" controls></video>
+          <br>
+          <a class="btn btn-primary" (click)="removeFromWatchlist(key.key)">Remove from watchlist</a>
+        </div>
+      </div>
+  </div>
+
   <div>
-   <h2>Upcoming</h2>
-      <div class="row">
-        <div class="col-sm" *ngFor="let url of upcomingURL">
-          <video width=400 height=400 type="video/mp4" src="{{url}}" controls></video>
+      <div class="align-content-center">
+      <h2>Upcoming</h2>
+        <h6>No. of feeds: {{(upcomingURL | keyvalue)?.length}}</h6>
+        </div>
+      <div class="card-deck border-bottom">
+        <div class="card-body" *ngFor="let key of objectKeys(upcomingURL)">
+          <h4>Box: {{key}}</h4>
+          <video width=400 height=400 type="video/mp4" src="{{upcomingURL[key]}}" controls></video>
+          <br>
+          <a class="btn btn-primary" (click)="addToWatchlist(key,upcomingURL[key])">Add to watchlist</a>
         </div>
       </div>
   </div>
     <div>
    <h2>Ongoing</h2>
-      <div class="row card-body">
-        <div class="col-sm" *ngFor="let url of ongoingURL">
-          <video width=400 height=400 type="video/mp4" src="{{url}}" controls></video>
+      <h6>No. of feeds: {{(ongoingURL | keyvalue)?.length}}</h6>
+      <div class="card-deck border-bottom">
+        <div class="card-body" *ngFor="let key of objectKeys(ongoingURL)">
+          <h4>Box: {{key}}</h4>
+          <video width=400 height=400 type="video/mp4" src="{{ongoingURL[key]}}" controls></video>
+          <br>
+          <a class="btn btn-primary" (click)="addToWatchlist(key,ongoingURL[key])">Add to watchlist</a>
         </div>
       </div>
   </div>
     <div>
    <h2>Completed</h2>
-      <div class="row">
-        <div class="col-sm" *ngFor="let url of completedURL">
-          <video width=400 height=400 type="video/mp4" src="{{url}}" controls></video>
+          <h6>No. of feeds: {{(completedURL | keyvalue)?.length}}</h6>
+      <div class="card-deck border-bottom">
+        <div class="card-body" *ngFor="let key of completedURL | keyvalue">
+          <h4>Box: {{key.key}}</h4>
+          <video width=400 height=400 type="video/mp4" src="{{key.value}}" controls></video>
+          <br>
+          <a class="btn btn-primary" (click)="addToWatchlist(key.key,key.value)">Add to watchlist</a>
         </div>
       </div>
   </div>
 </div>
+
