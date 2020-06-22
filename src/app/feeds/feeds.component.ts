@@ -17,28 +17,18 @@ export class FeedsComponent implements OnInit {
   public watchlist = {};
 
 ngOnInit(): void {
-    this.feedService.getFeeds().subscribe( response => {
-      for (let i = 0; i < response[0].completed.length; i++) {
-        this.completedURL[response[0].completed[i].box_number] = response[0].completed[i].feed_url;
-      }
-      for (let j = 0; j < response[0].ongoing.length; j++) {
-        this.ongoingURL[response[0].ongoing[j].box_number] = response[0].ongoing[j].feed_url;
-      }
-      for (let k = 0; k < response[0].upcoming.length; k++) {
-        this.upcomingURL[response[0].upcoming[k].box_number] = response[0].upcoming[k].feed_url;
-      }
-
-    });
-  }
+  this.feedService.getFeeds();
+  this.completedURL = this.feedService.completedURL;
+  this.upcomingURL = this.feedService.upcomingURL;
+  this.ongoingURL = this.feedService.ongoingURL;
+  this.watchlist = this.feedService.watchlist
+}
 removeFromWatchlist(box) {
-  for (let key in this.watchlist) {
-    delete this.watchlist[box];
+  // tslint:disable-next-line:forin
+  this.feedService.WatchlistRemoveBox(box);
   }
+    addToWatchlist(box: string, url: string) {
+  this.feedService.watchListAddBox(box, url);
 }
-  addToWatchlist(box: string, url: string) {
-  this.watchlist[box] = url;
-  console.log(this.watchlist);
-}
-
 }
 

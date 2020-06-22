@@ -3,7 +3,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<div class="container">
+<div class="container-fluid">
+  <div *ngIf="(watchlist | keyvalue)?.length">
+
+   <h2>Watchlist</h2>
+          <h6>No. of feeds: {{(watchlist | keyvalue)?.length}}</h6>
+      <div class="card-deck border-bottom">
+        <div class="card-body" *ngFor="let key of watchlist | keyvalue">
+          <h4>Box: {{key.key}}</h4>
+          <video width=400 height=400 type="video/mp4" src="{{key.value}}" controls></video>
+          <br>
+          <a class="btn btn-primary" (click)="removeFromWatchlist(key.key)">Remove from watchlist</a>
+        </div>
+      </div>
+  </div>
   <a class="btn btn-info" data-toggle="collapse" data-target="#ongoing">Ongoing</a>
   <div id="ongoing" class="collapse">
     Lorem ipsum dolor
